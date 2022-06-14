@@ -8,4 +8,19 @@ html {
   font-family: sans-serif;
   background-color: #001632;
   color: white;
+  line-height: 2.5rem;
+}
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin: 1rem 0 3rem;
+}
+
+ul {
+  list-style: none;
 }

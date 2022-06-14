@@ -3,7 +3,7 @@ class Prodotto {
   public $nome;
   public $descrizione;
   public $prezzo;
-  public $disponibile = true;
+  public $in_stock = true;
 
   function __construct($_nome, $_descrizione, $_prezzo) {
     $this->nome = $_nome;
@@ -12,7 +12,7 @@ class Prodotto {
   }
 
   public function printInfo() {
-    return "$this->nome $this->descrizione $this->prezzo €";
+    return "$this->nome | $this->descrizione | $this->prezzo €";
   }
 }
 ?>

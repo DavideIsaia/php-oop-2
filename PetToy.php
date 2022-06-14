@@ -1,20 +1,17 @@
 <?php
 require_once __DIR__ . "/Prodotto.php";
 class PetToy extends Prodotto {
-    private $materiale;
-    private $colore;
+    public $materiale;
+    public $colore;
 
     public function __construct($nome, $descrizione, $prezzo, $materiale, $colore) {
         parent::__construct($nome, $descrizione, $prezzo);
-        $this->material = $materiale;
-        $this->color = $colore;
+        $this->materiale = $materiale;
+        $this->colore = $colore;
     }
 
-    public function getMateriale() {
-        return $this->materiale;
-    }
-    public function getColore() {
-        return $this->colore;
+    public function printInfo() {
+        return "$this->nome | $this->descrizione | $this->prezzo € - Materiale: $this->materiale - Colore: $this->colore";
     }
 }
 ?>

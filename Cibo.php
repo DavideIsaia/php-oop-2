@@ -1,15 +1,15 @@
 <?php
 require_once __DIR__ . "/Prodotto.php";
 class Cibo extends Prodotto {
-  private $scadenza;
+  public $scadenza;
 
-  public function __construct($nome, $descrizione, $prezzo, $scadenza) {
+  function __construct($nome, $descrizione, $prezzo, $scadenza) {
     parent::__construct($nome, $descrizione, $prezzo);
     $this->scadenza = $scadenza;
   }
 
-  public function getScadenza() {
-    return $this->scadenza;
+  public function printInfo() {
+    return "$this->nome | $this->descrizione | $this->prezzo € - Scade il $this->scadenza";
   }
 }
 ?>
