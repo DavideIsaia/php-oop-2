@@ -12,13 +12,13 @@ html {
 }
 
 .container {
-  width: 60%;
+  width: 65%;
   margin: 0 auto;
 }
 
 h1 {
   text-align: center;
-  margin: 1rem 0 2rem;
+  margin: 1rem 0;
 }
 
 ul {

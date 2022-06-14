@@ -7,8 +7,7 @@ class Utente {
   public $carrello = [];
   public $registrato = false;
 
-
-  public function __construct($nome, $cognome, $tel) {
+  function __construct($nome, $cognome, $tel) {
     $this->nome = $nome;
     $this->cognome = $cognome;
     $this->tel = $tel;
@@ -27,24 +26,24 @@ class Utente {
     }
   }
 
-  function registrato() {
+  public function registrato() {
       $this->registrato = true;
-      return "Bentornato ".$this->name."! hai effettuato l'accesso :)";
+      return "Bentornato " . $this->nome ." " . $this->cognome . "! hai effettuato l'accesso :)";
   }
 
-  function getPrezzoTot() {
+  public function getPrezzoTot() {
       $prezzo_tot = 0;
       foreach($this->carrello as $item) {
           $prezzo_tot += $item->prezzo;
       }
       if ($this->registrato) {
-          return $prezzo_tot*0.8." (sconto del 20% applicato!)";
+          return  number_format((float)$prezzo_tot*0.8, 2, '.', '') . " (sconto del 20% applicato!)";
       }
       else {
-      return $prezzo_tot;
+      return number_format((float)$prezzo_tot, 2, '.', '');
       }
   }
-  function canPurchase() {
+  public function canPurchase() {
       return !$this->scadenza_carta;
   }
 }
