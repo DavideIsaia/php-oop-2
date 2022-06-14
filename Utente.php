@@ -19,31 +19,31 @@ class Utente {
 
   public function aggiungiCarrello($_prodotto) {
     if ($_prodotto->in_stock) {
-        $this->carrello[] = $_prodotto;
-        return true;
+      $this->carrello[] = $_prodotto;
+      return true;
     } else {
-        return false;
+      return false;
     }
   }
 
   public function registrato() {
-      $this->registrato = true;
-      return "Bentornato " . $this->nome ." " . $this->cognome . "! hai effettuato l'accesso :)";
+    $this->registrato = true;
+    return "Bentornato " . $this->nome ." " . $this->cognome . "! hai effettuato l'accesso :)";
   }
 
   public function getPrezzoTot() {
-      $prezzo_tot = 0;
-      foreach($this->carrello as $item) {
-          $prezzo_tot += $item->prezzo;
-      }
-      if ($this->registrato) {
-          return  number_format((float)$prezzo_tot*0.8, 2, '.', '') . " (sconto del 20% applicato!)";
-      }
-      else {
+    $prezzo_tot = 0;
+    foreach($this->carrello as $item) {
+      $prezzo_tot += $item->prezzo;
+    }
+    if ($this->registrato) {
+      return  number_format((float)$prezzo_tot*0.8, 2, '.', '') . " (sconto del 20% applicato!)";
+    } else {
       return number_format((float)$prezzo_tot, 2, '.', '');
-      }
+    }
   }
+
   public function canPurchase() {
-      return !$this->carta_scaduta;
+    return !$this->carta_scaduta;
   }
 }

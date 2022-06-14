@@ -10,16 +10,18 @@
   $dog_toy = new PetToy("Molla l'osso!", "Osso da masticare", 9.99, "Gomma", "Beige");
   $cat_toy = new PetToy("Scappa Jerry!", "Giocattolo a forma di topo", 34.99, "Stoffa", "Grigio");
 
-  // invento gli utenti
+  // invento utente non registrato
   $user1 = new Utente("Davide", "Isaia", "333-1234567");
   $user1-> aggiungiCarrello($dog_food);
   $user1-> aggiungiCarrello($dog_toy);
 
+  // utente registrato
   $user2 = new Utente("Dottor", "Dolittle", "393-9876543");
   $user2-> aggiungiCarrello($dog_food);
   $user2-> aggiungiCarrello($dog_toy);
   $user2-> aggiungiCarrello($cat_toy);
 
+  // utente con carta scaduta
   $user3 = new Utente("Povero", "Gabbiano", "340-3456123");
   $user3-> aggiungiCarrello($dog_food);
   $user3->carta_scaduta = true;
@@ -39,12 +41,14 @@
     <h1>Animal Shopping</h1>
     <hr>
     <h3>Prodotti in pronta consegna:</h3>
+    <!-- stampo la lista di prodotti -->
       <ul>
         <li><?php echo $dog_food->printInfo(); ?></li>
         <li><?php echo $dog_toy->printInfo(); ?></li>
         <li><?php echo $cat_toy->printInfo(); ?></li>
       </ul>
       <hr>
+
       <!-- utente non registrato -->
       <h3>Utente Ospite</h3>
       <h4><?php echo $user1->printUtente(); ?></h4>
@@ -61,8 +65,7 @@
         <?php
         if ($user1->canPurchase()) {
           echo "Puoi procedere all'acquisto!";
-        }
-        else {
+        } else {
           echo "La tua carta è scaduta. Inserire metodo di pagamento alternativo";
         }?>
       </p>
@@ -85,8 +88,7 @@
         <?php
         if ($user2->canPurchase()) {
           echo "Puoi procedere all'acquisto!";
-        }
-        else {
+        } else {
           echo "La tua carta è scaduta. Inserire metodo di pagamento alternativo";
         }?>
       </p>
@@ -102,13 +104,13 @@
           <li><?php echo $item->printInfo(); ?></li>
         <?php } ?>
       </ul>
-      <h3>Totale: € <?php echo $user2->getPrezzoTot(); ?></h3>      
+      <h3>Totale: € <?php echo $user3->getPrezzoTot(); ?></h3>  
+
       <p>
         <?php
         if ($user3->canPurchase()) {
           echo "Puoi procedere all'acquisto!";
-        }
-        else {
+        } else {
           echo "La tua carta è scaduta. Inserire metodo di pagamento alternativo";
         }?>
       </p>
