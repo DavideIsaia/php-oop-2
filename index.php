@@ -19,6 +19,10 @@
   $user2-> aggiungiCarrello($dog_food);
   $user2-> aggiungiCarrello($dog_toy);
   $user2-> aggiungiCarrello($cat_toy);
+
+  $user3 = new Utente("Povero", "Gabbiano", "340-3456123");
+  $user3-> aggiungiCarrello($dog_food);
+  $user3->carta_scaduta = true;
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +67,7 @@
         }?>
       </p>
       <hr>
+
       <!-- utente registrato -->
       <h3>Utente Registrato</h3>
       <h4><?php echo $user2->printUtente(); ?></h4>
@@ -78,7 +83,29 @@
       
       <p>
         <?php
-        if ($user1->canPurchase()) {
+        if ($user2->canPurchase()) {
+          echo "Puoi procedere all'acquisto!";
+        }
+        else {
+          echo "La tua carta è scaduta. Inserire metodo di pagamento alternativo";
+        }?>
+      </p>
+      <hr>
+
+      <!-- utente con carta scaduta -->
+      <h3>Utente Ospite</h3>
+      <h4><?php echo $user3->printUtente(); ?></h4>
+      <hr>
+      <h2>Ciao <?php echo $user3->nome; ?>. Ecco il tuo carrello:</h2>
+      <ul>
+        <?php foreach($user3->carrello as $item) { ?>
+          <li><?php echo $item->printInfo(); ?></li>
+        <?php } ?>
+      </ul>
+      <h3>Totale: € <?php echo $user2->getPrezzoTot(); ?></h3>      
+      <p>
+        <?php
+        if ($user3->canPurchase()) {
           echo "Puoi procedere all'acquisto!";
         }
         else {

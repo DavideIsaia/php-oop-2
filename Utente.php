@@ -3,7 +3,7 @@ class Utente {
   public $nome;
   public $cognome;
   public $tel;
-  public $scadenza_carta;
+  public $carta_scaduta = false;
   public $carrello = [];
   public $registrato = false;
 
@@ -44,6 +44,6 @@ class Utente {
       }
   }
   public function canPurchase() {
-      return !$this->scadenza_carta;
+      return !$this->carta_scaduta;
   }
 }
