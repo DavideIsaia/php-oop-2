@@ -6,6 +6,7 @@
 
   $dog_food = new Cibo("Enjoy Plus", "Crocchette di pollo", 24.99, "14/06/2024");
   $dog_toy = new PetToy("Molla l'osso!", "Osso da masticare", 9.99, "Gomma", "Beige");
+  $cat_toy = new PetToy("Scappa Jerry!", "Giocattolo a forma di topo", 34.99, "Stoffa", "Grigio");
 
   $user1 = new Utente("Davide", "Isaia", "333-1234567");
   $user1-> aggiungiCarrello($dog_food);
@@ -24,12 +25,17 @@
 <body>
   <div class="container">
     <h1>Animal Shopping</h1>
+    <hr>
     <h3>Prodotti in pronta consegna:</h3>
       <ul>
         <li><?php echo $dog_food->printInfo(); ?></li>
         <li><?php echo $dog_toy->printInfo(); ?></li>
+        <li><?php echo $cat_toy->printInfo(); ?></li>
       </ul>
-
+      <hr>
+      <h3>Utente</h3>
+      <h4><?php echo $user1->printUtente(); ?></h4>
+      <hr>
       <h2>Ciao <?php echo $user1->nome; ?>. Ecco il tuo carrello:</h2>
       <ul>
         <?php foreach($user1->carrello as $item) { ?>

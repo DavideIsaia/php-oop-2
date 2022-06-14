@@ -1,8 +1,8 @@
 <?php
 class Utente {
-  protected $nome;
-  protected $cognome;
-  protected $tel;
+  public $nome;
+  public $cognome;
+  public $tel;
   public $scadenza_carta;
   public $carrello = [];
   public $registrato = false;
@@ -15,7 +15,7 @@ class Utente {
   }
 
   public function printUtente() {
-    return "$this->nome $this->cognome Numero di telefono: $this->tel";
+    return "$this->nome $this->cognome - <small>Numero di tel: $this->tel</small>";
   }
 
   public function aggiungiCarrello($_prodotto) {

@@ -18,9 +18,13 @@ html {
 
 h1 {
   text-align: center;
-  margin: 1rem 0 3rem;
+  margin: 1rem 0 2rem;
 }
 
 ul {
   list-style: none;
+}
+
+hr {
+  margin: 0.4rem 0 1rem;
 }
